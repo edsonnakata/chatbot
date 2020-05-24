@@ -1,0 +1,22 @@
+# Rodar 'docker-compose up --build' para buildar o docker
+version: '3'
+
+services:
+  postgres:
+    image: 'postgres:9.5'
+    volumes:
+      - 'postgres:/var/lib/postgresql/data'
+  
+  website:
+    depends_on:
+      - 'postgres' # cria a dependencia do docker para subir somente se o serviço do pg estiver ativo
+    build: . # roda o dockerfile
+    ports:
+      - '9292:9292' # refletir a porta 9292 do docker na 9292 da maquina principal
+    volumes:
+      - '.:/xigbot' # refletir a pasta atual com a pasta xigbot do docker
+    environment:
+      - LANG=C.UTF-8
+
+volumes:
+  postgres:
