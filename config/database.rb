@@ -2,7 +2,7 @@ configure :test do
   set :database, {
     adapter: 'postgresql',
     encoding: 'utf8',
-    database: 'chatbot_test',
+    database: 'xigbot_test',
     pool: 5,
     username: 'postgres',
     host: 'postgres'
@@ -13,7 +13,7 @@ configure :development do
   set :database, {
     adapter: 'postgresql',
     encoding: 'utf8',
-    database: 'chatbot_development',
+    database: 'xigbot_development',
     pool: 5,
     username: 'postgres',
     host: 'postgres'
